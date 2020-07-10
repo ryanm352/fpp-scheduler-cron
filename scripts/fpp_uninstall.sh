@@ -4,4 +4,4 @@
 
 cd ..
 rm -rf vendor
-crontab -l | grep -v 'echo "test"'  | crontab -
+crontab -l | grep -v 'echo hello'  | crontab -
