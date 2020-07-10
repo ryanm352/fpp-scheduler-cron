@@ -4,5 +4,5 @@
 
 cd ..
 composer install
-(crontab -l ; echo "00 09 * * 1-5 echo hello") | crontab -
+(crontab -l ; echo "* * * * * php /home/fpp/media/plugins/fpp-scheduler-cron/src/scheduler.php 1>> /dev/null 2>&1") | crontab -
 echo crontab updated

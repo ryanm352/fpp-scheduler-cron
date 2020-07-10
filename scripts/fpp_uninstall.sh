@@ -5,5 +5,5 @@
 cd ..
 rm -rf vendor
 echo vendor folder removed
-crontab -l | grep -v 'echo hello'  | crontab -
+crontab -l | grep -v 'src/scheduler.php'  | crontab -
 echo crontab removed
