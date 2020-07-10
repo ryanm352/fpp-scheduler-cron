@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 use GO\Scheduler;
 
@@ -7,7 +7,8 @@ use GO\Scheduler;
 $scheduler = new Scheduler();
 
 // ... configure the scheduled jobs (see below) ...
-$scheduler->raw('fpp -L | fpp -P hourly')->everyMinute(3)->output('test.log');
+$scheduler->raw('fpp -L | fpp -P hourly')->everyMinute(2)->output('test.log');
+$scheduler->raw('ps aux | grep http')->output('test2.log');
 
 // Let the scheduler execute jobs which are due.
 $scheduler->run();

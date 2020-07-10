@@ -2,7 +2,8 @@
     "name": "ryan/fpp-scheduler-cron",
     "type": "plugin",
     "require": {
-        "peppeocchi/php-cron-scheduler": "3.*"
+        "peppeocchi/php-cron-scheduler": "3.*",
+        "nesbot/carbon": "^2.36"
     }
     ,
     "require-dev": {
