@@ -1,15 +1,15 @@
 {
 	"repoName": "fpp-scheduler-cron",
-	"name": "Template Plugin for FPP Plugin developers",
-	"author": "John Doe (jdoe)",
-	"description": "This template plugin is designed to make it easier for plugin authors to create new FPP Plugins.  You can manually clone the git repository or install the Template Plugin and then go to the plugin's config page and use the form to copy the template into a new plugin directory.",
-	"homeURL": "https://github.com/FalconChristmas/fpp-plugin-Template",
+	"name": "Task Scheduler Cron",
+	"author": "Ryan McDonald",
+	"description": "New and improved task scheduler for playslists.",
+	"homeURL": "https://github.com/ryanm352/fpp-scheduler-cron",
 	"srcURL": "https://github.com/ryanm352/fpp-scheduler-cron.git",
-	"bugURL": "https://github.com/FalconChristmas/fpp-plugin-Template/issues",
+	"bugURL": "https://github.com/ryanm352/fpp-scheduler-cron/issues",
 	"allowUpdates": 1,
 	"versions": [
 		{
-			"minFPPVersion": "2.0",
+			"minFPPVersion": "3.6",
 			"maxFPPVersion": "0",
 			"branch": "master",
 			"sha": "",
@@ -19,8 +19,6 @@
 			    "packages": [
 				],
 				"scripts": [
-					"Control/script-repository-script1",
-					"PixelOverlay/script-repository-script2"
 				]
 			}
 		}
