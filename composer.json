@@ -1,0 +1,7 @@
+{
+    "name": "ryan/fpp-scheduler-cron",
+    "type": "plugin",
+    "require": {
+        "peppeocchi/php-cron-scheduler": "^3.0"
+    }
+}
