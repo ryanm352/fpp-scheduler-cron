@@ -4,5 +4,5 @@
 sudo apt-get update
 sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3  php-mbstring
 crontab -l | grep -v 'php artisan schedule:run'  | crontab -
-(crontab -l ; echo "* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1") | crontab -
+(crontab -l ; echo "* * * * * cd /home/fpp/media/plugins && php artisan schedule:run >> /dev/null 2>&1") | crontab -
 echo crontab updated
