@@ -18,18 +18,18 @@ $menuEntries = Array(
 		'page' => 'status.php',
 		'wrap' => 1
 	),
-#	Array(
-#		'text' => 'Template - Content Setup',
-#		'type' => 'content',
-#		'page' => 'content.php',
-#		'wrap' => 1
-#	),
-#	Array(
-#		'text' => 'Template - Output',
-#		'type' => 'output',
-#		'page' => 'output.php',
-#		'wrap' => 1
-#	),
+	Array(
+		'text' => 'Template - Content Setup',
+		'type' => 'content',
+		'page' => 'content.php',
+		'wrap' => 1
+	),
+	Array(
+		'text' => 'Template - Output',
+		'type' => 'output',
+		'page' => 'output.php',
+		'wrap' => 1
+	),
 	Array(
 		'text' => 'Template - Help',
 		'type' => 'help',
