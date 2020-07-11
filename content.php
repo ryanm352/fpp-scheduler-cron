@@ -1,1 +1,6 @@
-Template Plugin Content Setup Page Placeholder
+<!DOCTYPE html>
+<html lang="en">
+<body>
+test
+</body>
+</html>
