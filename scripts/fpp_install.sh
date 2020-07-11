@@ -3,7 +3,14 @@
 # install php-mbstring
 echo Installing packages..
 sudo apt-get update
-sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs npm php-mbstring
+sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 php-mbstring
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+curl -o- -L https://yarnpkg.com/install.sh | bash
+exec "$BASH"
+
+# install nvm
+nvm install --lts
+nvm use --lts
 
 # migrate table changes
 echo Running Migrations...
@@ -13,12 +20,8 @@ cp -R -u -p .env.example .env
 touch database/scheduler.db
 php artisan migrate -n --force
 
-
 # build front-end
 echo Building UI...
-
-curl -o- -L https://yarnpkg.com/install.sh | bash
-
 cd ..
 cd scheduler-ui
 yarn update
