@@ -13,9 +13,9 @@
 
 $menuEntries = [
 	[
-		'text' => 'Template - Content Setup',
+		'text' => 'Scheduler v2',
 		'type' => 'content',
-		'page' => 'content.php',
+		'page' => 'app.php',
 		'wrap' => 1
 	]
 ];
