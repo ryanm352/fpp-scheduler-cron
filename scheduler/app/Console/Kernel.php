@@ -34,7 +34,7 @@ class Kernel extends ConsoleKernel
                 echo 'I completed! ' . $response->getBody();
             });
             $promise->wait();
-        });
+        })->everyFiveMinutes();
 
 
       //  http://onnitsigncontroller.local/fppxml.php?command=startPlaylist&playList=hourly&repeat=checked&playEntry=1&section=
