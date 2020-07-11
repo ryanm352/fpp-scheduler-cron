@@ -3,7 +3,7 @@
 # install php-mbstring
 echo Installing packages..
 sudo apt-get update
-sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs yarn npm php-mbstring
+sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs npm php-mbstring
 
 # migrate table changes
 echo Running Migrations...
@@ -17,9 +17,11 @@ php artisan migrate -n --force
 # build front-end
 echo Building UI...
 
+curl -o- -L https://yarnpkg.com/install.sh | bash
+
 cd ..
 cd scheduler-ui
-yarn install
+yarn update
 npm run build
 
 echo Installing Crontab...
