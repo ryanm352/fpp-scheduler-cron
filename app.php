@@ -59,5 +59,5 @@
         var c = f;
         t()
     }([])</script>
-<script src="plugin.php?plugin=<?= $plugIn ?>&file=scheduler-ui/build/static/js/2.4e4b9277.chunk.js"></script>
-<script src="plugin.php?plugin=<?= $plugIn ?>&file=scheduler-ui/build/static/js/main.cf0780ab.chunk.js"></script>
+<script src="plugin.php?plugin=<?= $plugIn ?>&file=scheduler-ui/build/static/js/2.4e4b9277.chunk.js&nopage=1"></script>
+<script src="plugin.php?plugin=<?= $plugIn ?>&file=scheduler-ui/build/static/js/main.cf0780ab.chunk.js&nopage=1"></script>
