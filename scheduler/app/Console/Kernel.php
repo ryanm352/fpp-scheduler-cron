@@ -27,16 +27,14 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(static function () {
-            /*   $client = new Client();
-               echo 'running command!' . PHP_EOL;
-               $request = new Request('GET', 'http://localhost/api/playlists/stop');
-
-               $promise = $client->sendAsync($request)->then(static function ($response) {
-                   echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
-               });
-               $promise->wait();*/
-
             $client = new Client();
+
+            $request = new Request('GET', 'http://localhost/api/playlists/stop');
+            $promise = $client->sendAsync($request)->then(static function ($response) {
+                echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
+            });
+            $promise->wait();
+
             echo 'starting hourly playlist' . PHP_EOL;
             $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&playEntry=0');
             $promise = $client->sendAsync($request)->then(static function ($response) {
@@ -62,7 +60,7 @@ class Kernel extends ConsoleKernel
                 });
                 $promise->wait();
             })
-            ->onFailure(function() {
+            ->onFailure(static function() {
                echo 'onFailure?' . PHP_EOL;
             });
         ;
