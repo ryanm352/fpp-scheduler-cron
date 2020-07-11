@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(static function () {
             echo 'running command!';
             $client = new Client();
-            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=&playEntry=0&section=');
+            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=0&playEntry=1');
             $promise = $client->sendAsync($request)->then(static function ($response) {
                 echo 'I completed! ' . $response->getBody();
             });
