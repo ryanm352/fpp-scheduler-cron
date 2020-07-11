@@ -5,6 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 
 class Kernel extends ConsoleKernel
 {
@@ -20,7 +21,7 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param \Illuminate\Console\Scheduling\Schedule $schedule
+     * @param Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
@@ -29,7 +30,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(static function () {
             echo 'running command!';
             $client = new Client();
-            $request = new \GuzzleHttp\Psr7\Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=&playEntry=1&section=');
+            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=&playEntry=0&section=');
             $promise = $client->sendAsync($request)->then(static function ($response) {
                 echo 'I completed! ' . $response->getBody();
             });
