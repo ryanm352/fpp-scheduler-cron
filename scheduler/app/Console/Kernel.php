@@ -28,29 +28,29 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(static function () {
             $client = new Client();
-            echo 'running command!';
+            echo 'running command!' . PHP_EOL;
             $request = new Request('GET', 'http://localhost/api/playlists/stop');
 
             $promise = $client->sendAsync($request)->then(static function ($response) {
-                echo 'Playlist stopped! ' . $response->getBody();
+                echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
             });
             $promise->wait();
 
-            echo 'starting hourly playlist';
+            echo 'starting hourly playlist' . PHP_EOL;
             $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&playEntry=0');
             $promise = $client->sendAsync($request)->then(static function ($response) {
-                echo 'hourly started! ' . $response->getBody();
+                echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
             $promise->wait();
         })->name('playlist')->withoutOverlapping()->everyFiveMinutes()
             // restart regular playlist
             ->onSuccess(static function () {
                 $client = new Client();
-                echo 'restarting regular playlist!';
+                echo 'restarting regular playlist!' . PHP_EOL;
                 $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=onnit_sign&repeat=checked&playEntry=0');
                 // Task is complete...
                 $promise = $client->sendAsync($request)->then(static function ($response) {
-                    echo 'Hourly playlist started ' . $response->getBody();
+                    echo 'Hourly playlist started ' . PHP_EOL . $response->getBody();
                 });
                 $promise->wait();
             });
