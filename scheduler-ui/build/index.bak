@@ -1,0 +1,5 @@
+<div id="root"></div>
+
+<script src="plugin.php?plugin=fpp-scheduler-cron&file=scheduler-ui/build/static/js/main.js&nopage=1"></script>
+<script src="plugin.php?plugin=fpp-scheduler-cron&file=scheduler-ui/build/static/js/main.js&nopage=1"></script>
+<script src="plugin.php?plugin=fpp-scheduler-cron&file=js/2.4e4b9277.chunk.js&nopage=1"></script>

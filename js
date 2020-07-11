@@ -1,1 +1,0 @@
-scheduler-ui/build/static/js/
