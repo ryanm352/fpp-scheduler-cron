@@ -7,6 +7,7 @@ echo Installing packages..
 sudo apt-get update
 sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 php-mbstring
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+export NVM_DIR="/home/fpp/.nvm"
 curl -o- -L https://yarnpkg.com/install.sh | bash
 exec "$BASH"
 
