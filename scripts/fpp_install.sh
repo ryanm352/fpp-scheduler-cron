@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install php-mbstring
-rm -rf /home/fpp/.yarn
+rm -rf ~/.yarn
 
 echo Installing packages..
 #sudo apt-get update
@@ -9,7 +9,8 @@ echo Installing packages..
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-export NVM_DIR="/home/fpp/.nvm"
+export NVM_DIR="~/.nvm"
+source ~/.nvm/nvm.sh
 
 # install nvm
 nvm install --lts
