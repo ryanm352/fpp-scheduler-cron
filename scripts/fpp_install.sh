@@ -4,7 +4,7 @@
 rm -rf ~/.yarn
 
 echo Installing packages..
-sudo apt-get update && apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs npm php-mbstring
+sudo apt-get update && sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs npm php-mbstring
 
 # install nvm
 #curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
