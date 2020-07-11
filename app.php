@@ -60,4 +60,4 @@
         t()
     }([])</script>
 <script src="plugin.php?plugin=<?= $plugIn ?>&file=scheduler-ui/build/static/js/2.b72efa3d.chunk.js&nopage=1"></script>
-<script src="plugin.php?plugin=<?= $plugIn ?>&file=scheduler-ui/build/static/js/main.892a43fe.chunk.js&nopage=1"></script>
+<script src="plugin.php?plugin=<?= $plugIn ?>&file=scheduler-ui/build/static/js/main.7d7eb127.chunk.js&nopage=1"></script>
