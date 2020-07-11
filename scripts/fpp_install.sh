@@ -3,7 +3,7 @@
 # install php-mbstring
 echo Installing packages..
 sudo apt-get update
-sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs yarn npm php-mbstring php-sqlite
+sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs yarn npm php-mbstring
 
 # migrate table changes
 echo Running Migrations...
