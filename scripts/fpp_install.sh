@@ -31,7 +31,7 @@ echo Building UI...
 cd ..
 cd scheduler-ui
 yarn install
-npm run build
+yarn build
 
 echo Installing Crontab...
 # install crontab
