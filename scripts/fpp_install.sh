@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # install php-mbstring
-sudo apt-get update
-sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3  php-mbstring
+#sudo apt-get update
+#sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3  php-mbstring
 
 # install node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -11,6 +11,7 @@ nvm --version
 nvm install --lts
 nvm use --lts
 node -v
+
 
 # migrate table changes
 cd .. && cd scheduler
