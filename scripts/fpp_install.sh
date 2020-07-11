@@ -16,7 +16,11 @@ php artisan migrate -n --force
 
 # build front-end
 echo Building UI...
-cd .. && cd scheduler-ui && npm run build
+
+cd ..
+cd scheduler-ui
+yarn install
+npm run build
 
 echo Installing Crontab...
 # install crontab

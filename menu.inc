@@ -11,44 +11,14 @@
 # entries to display additional menu items such as the 3 items under the
 # help menu in this example template.
 
-$menuEntries = Array(
-	Array(
-		'text' => 'Template - Status',
-		'type' => 'status',
-		'page' => 'status.php',
-		'wrap' => 1
-	),
-	Array(
+$menuEntries = [
+	[
 		'text' => 'Template - Content Setup',
 		'type' => 'content',
 		'page' => 'content.php',
 		'wrap' => 1
-	),
-	Array(
-		'text' => 'Template - Output',
-		'type' => 'output',
-		'page' => 'output.php',
-		'wrap' => 1
-	),
-	Array(
-		'text' => 'Template - Help',
-		'type' => 'help',
-		'page' => 'help/help.php',
-		'wrap' => 1
-	),
-	Array(
-		'text' => 'Template - Home',
-		'type' => 'help',
-		'page' => 'https://github.com/FalconChristmas/fpp-plugin-Template',
-		'wrap' => 1
-	),
-	Array(
-		'text' => 'Template - About',
-		'type' => 'help',
-		'page' => 'about.php',
-		'wrap' => 1
-	)
-);
+	]
+];
 
 ##############################################################################
 # Display the menu entries for this plugin.
