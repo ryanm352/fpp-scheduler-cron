@@ -36,6 +36,6 @@ class Kernel extends ConsoleKernel
         });
 
 
-        http://onnitsigncontroller.local/fppxml.php?command=startPlaylist&playList=hourly&repeat=checked&playEntry=1&section=
+      //  http://onnitsigncontroller.local/fppxml.php?command=startPlaylist&playList=hourly&repeat=checked&playEntry=1&section=
     }
 }
