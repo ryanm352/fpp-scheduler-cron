@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
                 echo 'hourly started! ' . $response->getBody();
             });
             $promise->wait();
-        })->withoutOverlapping()->everyFiveMinutes()
+        })->everyFiveMinutes()
             // restart regular playlist
             ->after(static function ($client) {
                 echo 'restarting regular playlist!';
