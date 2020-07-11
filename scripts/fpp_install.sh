@@ -4,8 +4,7 @@
 rm -rf ~/.yarn
 
 echo Installing packages..
-#sudo apt-get update
-sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs php-mbstring
+sudo apt-get update && apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs php-mbstring
 
 # install nvm
 #curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
@@ -18,7 +17,6 @@ sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 n
 
 # install yarn
 curl -o- -L https://yarnpkg.com/install.sh | bash
-source ~/.yarn
 
 # migrate table changes
 echo Running Migrations...
@@ -32,7 +30,7 @@ php artisan migrate -n --force
 echo Building UI...
 cd ..
 cd scheduler-ui
-yarn update
+yarn install
 npm run build
 
 echo Installing Crontab...
