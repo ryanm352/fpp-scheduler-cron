@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
+use GuzzleHttp\Client;
 
 class Kernel extends ConsoleKernel
 {
@@ -19,11 +20,22 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->exec('fpp -P hourly')->everyFiveMinutes();
+
+        $schedule->call(static function () {
+            $client = new Client();
+            $request = new \GuzzleHttp\Psr7\Request('GET', '/fppxml.php?command=startPlaylist&playList=hourly&repeat=checked&playEntry=1&section=');
+            $promise = $client->sendAsync($request)->then(static function ($response) {
+                echo 'I completed! ' . $response->getBody();
+            });
+            $promise->wait();
+        });
+
+
+        http://onnitsigncontroller.local/fppxml.php?command=startPlaylist&playList=hourly&repeat=checked&playEntry=1&section=
     }
 }
