@@ -10,7 +10,6 @@ echo Installing packages..
 # install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 export NVM_DIR="/home/fpp/.nvm"
-exec bash
 
 # install nvm
 nvm install --lts
