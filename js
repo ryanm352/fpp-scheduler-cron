@@ -1,1 +1,1 @@
-scheduler-ui/build/static/js
+scheduler-ui/build/static/js/
