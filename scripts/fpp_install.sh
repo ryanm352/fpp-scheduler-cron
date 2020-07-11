@@ -9,8 +9,10 @@ sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 n
 echo Running Migrations...
 cd ..
 cd scheduler
+cp -R -u -p .env.example .env
 touch database/scheduler.db
 php artisan migrate -n --force
+
 
 # build front-end
 echo Building UI...
