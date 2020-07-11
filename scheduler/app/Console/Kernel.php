@@ -27,14 +27,14 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(static function () {
-            $client = new Client();
-            echo 'running command!' . PHP_EOL;
-            $request = new Request('GET', 'http://localhost/api/playlists/stop');
+            /*   $client = new Client();
+               echo 'running command!' . PHP_EOL;
+               $request = new Request('GET', 'http://localhost/api/playlists/stop');
 
-            $promise = $client->sendAsync($request)->then(static function ($response) {
-                echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
-            });
-            $promise->wait();
+               $promise = $client->sendAsync($request)->then(static function ($response) {
+                   echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
+               });
+               $promise->wait();*/
 
             echo 'starting hourly playlist' . PHP_EOL;
             $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&playEntry=0');
@@ -44,7 +44,7 @@ class Kernel extends ConsoleKernel
             $promise->wait();
         })->name('playlist')->withoutOverlapping()->everyFiveMinutes()
             // restart regular playlist
-            ->onSuccess(static function () {
+            /*->onSuccess(static function () {
                 $client = new Client();
                 echo 'restarting regular playlist!' . PHP_EOL;
                 $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=onnit_sign&repeat=checked&playEntry=0');
@@ -53,6 +53,7 @@ class Kernel extends ConsoleKernel
                     echo 'Hourly playlist started ' . PHP_EOL . $response->getBody();
                 });
                 $promise->wait();
-            });
+            })*/
+        ;
     }
 }
