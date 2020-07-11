@@ -10,7 +10,7 @@ echo Running Migrations...
 cd ..
 cd scheduler
 touch database/scheduler.db
-php artisan migrate --force
+php artisan migrate -n --force
 
 # build front-end
 echo Building UI...
