@@ -26,18 +26,32 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-
-        $schedule->call(static function () {
+        $client = new Client();
+        $schedule->call(static function ($client) {
             echo 'running command!';
-            $client = new Client();
-            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=0&playEntry=1');
+            $request = new Request('GET', 'http://localhost/api/playlists/stop');
+
             $promise = $client->sendAsync($request)->then(static function ($response) {
-                echo 'I completed! ' . $response->getBody();
+                echo 'Playlist stopped! ' . $response->getBody();
             });
             $promise->wait();
-        })->everyFiveMinutes();
 
-
-      //  http://onnitsigncontroller.local/fppxml.php?command=startPlaylist&playList=hourly&repeat=checked&playEntry=1&section=
+            echo 'starting hourly playlist';
+            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=0&playEntry=1');
+            $promise = $client->sendAsync($request)->then(static function ($response) {
+                echo 'hourly started! ' . $response->getBody();
+            });
+            $promise->wait();
+        })->withoutOverlapping()->everyFiveMinutes()
+            // restart regular playlist
+            ->after(static function ($client) {
+                echo 'restarting regular playlist!';
+                $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=onnit_sign&repeat=checked&playEntry=0');
+                // Task is complete...
+                $promise = $client->sendAsync($request)->then(static function ($response) {
+                    echo 'Hourly playlist started ' . $response->getBody();
+                });
+                $promise->wait();
+            });
     }
 }
