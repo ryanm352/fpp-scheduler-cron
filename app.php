@@ -1,1 +1,1 @@
-scheduler/public/index.php
+<div id="root"></div>
