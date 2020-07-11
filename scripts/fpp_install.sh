@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # install php-mbstring
+rm -rf /home/fpp/.yarn
+
 echo Installing packages..
 sudo apt-get update
 sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 php-mbstring
