@@ -1,21 +1,17 @@
 #!/bin/bash
 
 # install php-mbstring
-#sudo apt-get update
-#sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3  php-mbstring
-
-# install node
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-source ~/.bashrc
-sh ./install_node.sh
+sudo apt-get update
+sudo apt-get -y -o Dpkg::Options::=--force-confdef install sqlite3 php-sqlite3 nodejs  php-mbstring
 
 # migrate table changes
-cd .. && cd scheduler
-touch databased/scheduler.db
-php scheduler/artisan migrate
+cd ..
+cd scheduler
+touch database/scheduler.db
+php artisan migrate
 
 # build front-end
-sh ./build_ui.sh
+cd .. && cd scheduler-ui && npm run build
 
 # install crontab
 crontab -l | grep -v 'php artisan schedule:run'  | crontab -
