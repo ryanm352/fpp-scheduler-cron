@@ -26,8 +26,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $client = new Client();
-        $schedule->call(static function ($client) {
+        $schedule->call(static function () {
+            $client = new Client();
             echo 'running command!';
             $request = new Request('GET', 'http://localhost/api/playlists/stop');
 
@@ -44,7 +44,8 @@ class Kernel extends ConsoleKernel
             $promise->wait();
         })->name('playlist')->withoutOverlapping()->everyFiveMinutes()
             // restart regular playlist
-            ->after(static function ($client) {
+            ->after(static function () {
+                $client = new Client();
                 echo 'restarting regular playlist!';
                 $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=onnit_sign&repeat=checked&playEntry=0');
                 // Task is complete...
