@@ -15,6 +15,7 @@ sudo apt-get update && sudo apt-get -y -o Dpkg::Options::=--force-confdef instal
 #nvm install --lts
 #nvm use --lts
 
+
 # install yarn
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
@@ -22,6 +23,15 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 echo Running Migrations...
 cd ..
 cd scheduler
+
+#setup swap file
+#sudo fallocate -l 4G /swapfile
+#chmod 600 /swapfile
+#sudo mkswap /swapfile
+#sudo swapon /swapfile
+#composer install
+
+
 cp -R -u -p .env.example .env
 touch database/scheduler.db
 php artisan migrate -n --force
