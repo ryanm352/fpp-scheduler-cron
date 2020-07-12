@@ -62,7 +62,7 @@ class Kernel extends ConsoleKernel
         })->name('hourly')->everyFiveMinutes()
             ->before(static function () {
                 $client = new Client();
-
+                echo 'stopping currently playlist' . PHP_EOL;
                 $request = new Request('GET', 'http://localhost/api/playlists/stop');
                 $promise = $client->sendAsync($request)->then(static function ($response) {
                     echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
