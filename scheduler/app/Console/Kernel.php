@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(static function () {
+        $schedule->call(function () {
             $client = new Client();
 
             $request = new Request('GET', 'http://localhost/api/playlists/stop');
@@ -42,13 +42,13 @@ class Kernel extends ConsoleKernel
             });
             $promise->wait();
             return true;
-        })->name('playlist')->everyFiveMinutes()
+        })->name('playlist')->everyMinute()
             // restart regular playlist
             ->after(static function () {
                 $client = new Client();
 
                 $request = new Request('GET', 'http://localhost/api/playlists/stop');
-                $promise = $client->sendAsync($request)->then(static function ($response) {
+                $promise = $client->sendAsync($request)->then(function ($response) {
                     echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
                 });
                 $promise->wait();
@@ -56,7 +56,7 @@ class Kernel extends ConsoleKernel
                 echo 'restarting regular playlist!' . PHP_EOL;
                 $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=onnit_sign&repeat=checked&playEntry=0');
                 // Task is complete...
-                $promise = $client->sendAsync($request)->then(static function ($response) {
+                $promise = $client->sendAsync($request)->then(function ($response) {
                     echo 'onnit_sign playlist started ' . PHP_EOL . $response->getBody();
                 });
                 $promise->wait();
