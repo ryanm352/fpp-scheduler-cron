@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
             });
             $promise->wait();
             return true;
-        })->name('playlist')->withoutOverlapping()->everyFiveMinutes()
+        })->name('playlist')->withoutOverlapping(10)->everyFiveMinutes()
             // restart regular playlist
             ->after(static function () {
                 $client = new Client();
