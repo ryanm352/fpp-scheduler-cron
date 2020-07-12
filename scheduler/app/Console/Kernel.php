@@ -43,7 +43,7 @@ class Kernel extends ConsoleKernel
             });
             $promise->wait();
             return true;
-        })->name('playlist')->everyMinute()
+        })->everyMinute()
             // restart regular playlist
             ->after(static function () {
                 $client = new Client();
