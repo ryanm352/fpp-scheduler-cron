@@ -40,7 +40,7 @@ class Kernel extends ConsoleKernel
                     $client = new Client();
                     $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=onnit_sign&repeat=checked&playEntry=0');
                     $promise = $client->sendAsync($request)->then(static function ($response) {
-                        echo 'hourly started! ' . PHP_EOL . $response->getBody();
+                        echo 'onnit sign started! ' . PHP_EOL . $response->getBody();
                     });
                     $promise->wait();
                 }
