@@ -33,7 +33,6 @@ class Kernel extends ConsoleKernel
             $request = new Request('GET', 'http://localhost/fppjson.php?command=getFPPstatus');
             $promise = $client->sendAsync($request)->then(static function (Response $response) {
                 $json = json_decode($response->getBody(), true);
-                print_r($json);
                 if (!$json['current_playlist']['playlist']) {
                     echo $response->getBody();
                     echo 'player is idle...' . PHP_EOL;
