@@ -23,6 +23,8 @@ class CreateDatabaseTables extends Migration
             $table->date('end_date');
             $table->time('end_time');
             $table->string('playlist', 500);
+            $table->smallInteger('randomize')->default(0);
+            $table->smallInteger('play_single')->default(0);
             $table->mediumInteger('repeat_interval')->default(0);
             $table->string('custom_interval', 30);
             $table->string('stop_type', 50)->default(0);
