@@ -17,9 +17,15 @@ class CreateDatabaseTables extends Migration
             $table->id();
             $table->string('name', 500);
             $table->string('slug', 500);
-            $table->dateTime('start_timestamp');
-            $table->dateTime('end_timestamp');
-            $table->dateTime('string', 50);
+            $table->smallInteger('active')->default(0);
+            $table->date('start_date');
+            $table->time('start_time');
+            $table->date('end_date');
+            $table->time('end_time');
+            $table->string('playlist', 500);
+            $table->mediumInteger('repeat_interval')->default(0);
+            $table->string('custom_interval', 30);
+            $table->string('stop_type', 50)->default(0);
             $table->integer('priority')->default(0);
             $table->timestamps();
         });

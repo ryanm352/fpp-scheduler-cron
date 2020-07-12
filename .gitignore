@@ -1,2 +1,2 @@
 /vendor/
-!/scheduler/database/scheduler.db
+/scheduler/database/scheduler.db
