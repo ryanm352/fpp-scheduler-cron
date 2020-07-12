@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(static function () {
+        /*$schedule->call(static function () {
             $client = new Client();
             echo 'checking if not idle' . PHP_EOL;
             $request = new Request('GET', 'http://localhost/fppjson.php?command=getFPPstatus');
@@ -46,7 +46,7 @@ class Kernel extends ConsoleKernel
                 }
             });
             $promise->wait();
-        })->name('default')->everyMinute()->withoutOverlapping();
+        })->name('default')->everyMinute()->withoutOverlapping();*/
 
         $schedule->call(static function () {
             $client = new Client();
