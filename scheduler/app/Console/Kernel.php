@@ -60,6 +60,7 @@ class Kernel extends ConsoleKernel
                     echo 'onnit_sign playlist started ' . PHP_EOL . $response->getBody();
                 });
                 $promise->wait();
+                return true;
             })
             ->onFailure(static function() {
                echo 'onFailure?' . PHP_EOL;
