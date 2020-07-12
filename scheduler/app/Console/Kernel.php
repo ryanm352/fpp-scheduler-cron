@@ -37,7 +37,7 @@ class Kernel extends ConsoleKernel
             return true;
         })->name('hourly')->everyFiveMinutes()
             // restart regular playlist
-            ->after(static function () {
+            ->onSuccess(static function () {
                 $client = new Client();
 
                 $request = new Request('GET', 'http://localhost/api/playlists/stop');
