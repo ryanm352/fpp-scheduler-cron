@@ -58,7 +58,6 @@ class Kernel extends ConsoleKernel
                 echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
             $promise->wait();
-            return true;
         })->name('hourly')->everyFiveMinutes()
             ->before(static function () {
                 $client = new Client();
@@ -68,18 +67,6 @@ class Kernel extends ConsoleKernel
                     echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
                 });
                 $promise->wait();
-            })
-            ->after(static function () {
-                $client = new Client();
-
-                echo 'restarting regular playlist!' . PHP_EOL;
-                $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=onnit_sign&repeat=checked&playEntry=0');
-                // Task is complete...
-                $promise = $client->sendAsync($request)->then(static function ($response) {
-                    echo 'onnit_sign playlist started ' . PHP_EOL . $response->getBody();
-                });
-                $promise->wait();
-                return true;
             });
     }
 }
