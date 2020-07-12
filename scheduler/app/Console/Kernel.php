@@ -37,7 +37,7 @@ class Kernel extends ConsoleKernel
 
             sleep(5);
             echo 'starting hourly playlist' . PHP_EOL;
-            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&playEntry=1');
+            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&playEntry=0');
             $promise = $client->sendAsync($request)->then(static function ($response) {
                 echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
