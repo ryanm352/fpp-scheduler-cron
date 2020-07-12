@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(static function () {
+       /* $schedule->call(static function () {
             $client = new Client();
             echo 'starting hourly playlist' . PHP_EOL;
             $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=0&playEntry=0');
@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
             });
             $promise->wait();
             return true;
-        })->everyFiveMinutes();
+        })->everyFiveMinutes();*/
             // restart regular playlist
            /* ->then(static function () {
                 $client = new Client();
