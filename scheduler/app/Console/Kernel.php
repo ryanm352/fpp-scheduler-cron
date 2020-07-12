@@ -59,7 +59,7 @@ class Kernel extends ConsoleKernel
             });
             $promise->wait();
             return true;
-        })->everyFiveMinutes()
+        })->name('hourly')->everyFiveMinutes()
             ->before(static function () {
                 $client = new Client();
 
