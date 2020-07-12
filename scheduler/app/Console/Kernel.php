@@ -44,11 +44,9 @@ class Kernel extends ConsoleKernel
                     });
                     $promise->wait();
                 }
-
             });
             $promise->wait();
-
-        })->name('default')->everyMinute();
+        })->name('default')->everyMinute()->withoutOverlapping();
 
         $schedule->call(static function () {
             $client = new Client();
