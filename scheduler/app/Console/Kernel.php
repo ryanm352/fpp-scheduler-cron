@@ -41,6 +41,7 @@ class Kernel extends ConsoleKernel
                 echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
             $promise->wait();
+            return true;
         })->name('playlist')->withoutOverlapping()->everyFiveMinutes()
             // restart regular playlist
             ->after(static function () {
