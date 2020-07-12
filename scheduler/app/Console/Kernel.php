@@ -29,14 +29,14 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             $client = new Client();
 
-          /*  $request = new Request('GET', 'http://localhost/api/playlists/stop');
+            $request = new Request('GET', 'http://localhost/api/playlists/stop');
             $promise = $client->sendAsync($request)->then(static function ($response) {
                 echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
             });
-            $promise->wait();*/
+            $promise->wait();
 
             echo 'starting hourly playlist' . PHP_EOL;
-            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&playEntry=0');
+            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=0&playEntry=0');
             $promise = $client->sendAsync($request)->then(static function ($response) {
                 echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
