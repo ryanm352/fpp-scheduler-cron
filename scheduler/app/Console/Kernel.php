@@ -27,13 +27,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(static function () {
-            $client = new Client();
+           /* $client = new Client();
 
             $request = new Request('GET', 'http://localhost/api/playlists/stop');
             $promise = $client->sendAsync($request)->then(static function ($response) {
                 echo 'Playlist stopped! ' . PHP_EOL . $response->getBody();
             });
-            $promise->wait();
+            $promise->wait();*/
 
             $client = new Client();
             echo 'starting hourly playlist' . PHP_EOL;
@@ -43,9 +43,9 @@ class Kernel extends ConsoleKernel
             });
             $promise->wait();
             return true;
-        })->everyMinute()
+        })->everyMinute();
             // restart regular playlist
-            ->after(static function () {
+            /*->after(static function () {
                 $client = new Client();
 
                 $request = new Request('GET', 'http://localhost/api/playlists/stop');
@@ -62,6 +62,6 @@ class Kernel extends ConsoleKernel
                 });
                 $promise->wait();
                 return true;
-            });
+            });*/
     }
 }
