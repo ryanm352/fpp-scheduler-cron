@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->name('playlist')->call(static function () {
+        $schedule->call(static function () {
             $client = new Client();
 
             $request = new Request('GET', 'http://localhost/api/playlists/stop');
@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
             });
             $promise->wait();
             return true;
-        })->everyFiveMinutes()
+        })->name('playlist')->everyFiveMinutes()
             // restart regular playlist
             ->after(static function () {
                 $client = new Client();
