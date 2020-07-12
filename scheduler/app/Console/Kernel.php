@@ -35,9 +35,9 @@ class Kernel extends ConsoleKernel
             });
             $promise->wait();
             return true;
-        })->name('hourly')->everyFiveMinutes()
+        })->name('hourly')->everyFiveMinutes();
             // restart regular playlist
-            ->then(static function () {
+           /* ->then(static function () {
                 $client = new Client();
 
                 $request = new Request('GET', 'http://localhost/api/playlists/stop');
@@ -54,6 +54,6 @@ class Kernel extends ConsoleKernel
                 });
                 $promise->wait();
                 return true;
-            });
+            });*/
     }
 }
