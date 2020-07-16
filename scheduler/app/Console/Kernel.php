@@ -59,6 +59,7 @@ class Kernel extends ConsoleKernel
               'teal_gray_chase'
             ];
             $playlist = array_rand($hourlyPlaylists);
+            dump($playlist);
 
             $client = new Client();
             echo 'starting hourly playlist' . PHP_EOL;
