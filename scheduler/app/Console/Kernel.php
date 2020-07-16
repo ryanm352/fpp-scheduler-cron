@@ -68,6 +68,6 @@ class Kernel extends ConsoleKernel
                 echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
             $promise->wait();
-        })->name('hourly')->everyFiveMinutes();
+        })->name('hourly')->weekdays()->hourly()->between('8:00','18:00');
     }
 }
