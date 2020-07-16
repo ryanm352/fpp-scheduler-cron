@@ -49,9 +49,20 @@ class Kernel extends ConsoleKernel
         })->name('default')->everyMinute()->withoutOverlapping();*/
 
         $schedule->call(static function () {
+            $hourlyPlaylists = [
+              'fire_orange',
+              'green_chase',
+              'green_cyan_chase',
+              'red_bounce_green',
+              'red_chase',
+              'red_nightrider',
+              'teal_gray_chase'
+            ];
+            $playlist = array_rand($hourlyPlaylists);
+
             $client = new Client();
             echo 'starting hourly playlist' . PHP_EOL;
-            $request = new Request('GET', 'http://localhost/fppxml.php?command=startPlaylist&playList=hourly&repeat=&playEntry=0');
+            $request = new Request('GET', "http://localhost/fppxml.php?command=startPlaylist&playList={$playlist}&repeat=&playEntry=0");
             $promise = $client->sendAsync($request)->then(static function ($response) {
                 echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
