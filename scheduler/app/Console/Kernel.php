@@ -58,8 +58,8 @@ class Kernel extends ConsoleKernel
               'red_nightrider',
               'teal_gray_chase'
             ];
-            $playlist = array_rand($hourlyPlaylists);
-            dump($playlist);
+            $playlistKey = array_rand($hourlyPlaylists);
+            $playlist = $hourlyPlaylists[$playlistKey];
 
             $client = new Client();
             echo 'starting hourly playlist' . PHP_EOL;
@@ -68,6 +68,6 @@ class Kernel extends ConsoleKernel
                 echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
             $promise->wait();
-        })->name('hourly')->everyFiveMinutes();
+        })->name('hourly');
     }
 }
