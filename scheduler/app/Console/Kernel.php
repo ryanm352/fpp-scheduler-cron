@@ -62,12 +62,12 @@ class Kernel extends ConsoleKernel
             $playlist = $hourlyPlaylists[$playlistKey];
 
             $client = new Client();
-            echo 'starting hourly playlist' . PHP_EOL;
+            echo "starting hourly playlist: {$playlist}" . PHP_EOL;
             $request = new Request('GET', "http://localhost/fppxml.php?command=startPlaylist&playList={$playlist}&repeat=&playEntry=0");
             $promise = $client->sendAsync($request)->then(static function ($response) {
                 echo 'hourly started! ' . PHP_EOL . $response->getBody();
             });
             $promise->wait();
-        })->name('hourly');
+        })->name('hourly')->everyFiveMinutes();
     }
 }
